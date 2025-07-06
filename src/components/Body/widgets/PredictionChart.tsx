@@ -26,7 +26,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-export const description = "An interactive area chart"
+export const description = "Real-time Prediction Analytics"
 
 const chartData = [
   { date: "2024-04-01", desktop: 222, mobile: 150 },
@@ -124,19 +124,19 @@ const chartData = [
 
 const chartConfig = {
   visitors: {
-    label: "Visitors",
+    label: "Prediction Prices",
   },
   desktop: {
-    label: "Desktop",
+    label: "Yes Price",
     color: "var(--chart-1)",
   },
   mobile: {
-    label: "Mobile",
+    label: "No Price",
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
 
-export function ChartAreaInteractive() {
+export function PredictionChart() {
   const [timeRange, setTimeRange] = React.useState("90d")
 
   const filteredData = chartData.filter((item) => {
@@ -157,7 +157,7 @@ export function ChartAreaInteractive() {
     <Card className="pt-0">
       <CardHeader className="flex items-center gap-2 space-y-0 border-b py-5 sm:flex-row">
         <div className="grid flex-1 gap-1">
-          <CardTitle>Area Chart - Interactive</CardTitle>
+          <CardTitle>Will Malik Beasley be suspended by the NBA before October 2025?</CardTitle>
           <CardDescription>
             Showing total visitors for the last 3 months
           </CardDescription>
