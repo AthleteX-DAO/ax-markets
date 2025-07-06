@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { FeaturedMarkets } from './widgets/FeaturedMarkets';
 import { RelatedMarkets } from './widgets/RelatedMarkets';
 
