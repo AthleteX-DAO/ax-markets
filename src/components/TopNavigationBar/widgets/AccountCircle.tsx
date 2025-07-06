@@ -18,10 +18,10 @@ export function AccountSheet() {
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="ghost">
-        <Avatar>
+          <Avatar className="ring-2 ring-cyan-400/50 hover:ring-purple-400/80 transition-all duration-300 hover:scale-110">
             <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
+            <AvatarFallback className="bg-gradient-to-r from-purple-600 to-cyan-500 text-white">AX</AvatarFallback>
+          </Avatar>
         </Button>
       </SheetTrigger>
       <SheetContent>
