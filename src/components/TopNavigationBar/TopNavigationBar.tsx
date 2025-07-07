@@ -10,7 +10,7 @@ const TopNavigationBar = () => {
         {/* Logo with gold accent */}
         <div className="flex items-center space-x-2 group">
           <img 
-            src="/src/assets/Athletex 11 BIG.png" 
+            src="/src/assets/x.png" 
             alt="AthleteX Markets Exchange" 
             className="h-10 transition-transform duration-300 group-hover:scale-105"
           />
