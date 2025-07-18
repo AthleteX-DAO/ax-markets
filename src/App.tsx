@@ -4,6 +4,9 @@ import './App.css'
 import TopNavigationBar from './components/TopNavigationBar/TopNavigationBar'
 import BottomNavigationBar from './components/BottomNavigationBar/BottomNavigationBar'
 import Body from "./components/Body/Body"
+import PortfolioPage from "./components/PortfolioPage/PortfolioPage"
+import LeaderboardPage from "./components/LeaderboardPage/LeaderBoardPage"
+import MarketDetail from "./components/MarketDetails/MarketDetails"
 
 function App() {
 
@@ -13,6 +16,11 @@ function App() {
       <TopNavigationBar />
 
     <Body />
+    {/* <PortfolioPage /> */}
+    {/* <LeaderboardPage /> */}
+    {/* <MarketDetail /> */}
+
+    {/* Main Content */}
 
     <BottomNavigationBar />
     </ThemeProvider>
