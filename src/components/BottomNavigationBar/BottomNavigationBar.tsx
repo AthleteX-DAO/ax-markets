@@ -1,89 +1,76 @@
+import { Home, Activity, BarChart2, Twitter, Mail, MessageCircle } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+
+import { cn } from "@/lib/utils";
+
 
 const BottomNavigationBar = () => {
+  const location = useLocation();
+  const mobileLinks = [
+    { path: '/', icon: Home, label: 'Markets' },
+    { path: '/portfolio', icon: Activity, label: 'Portfolio' },
+    { path: '/leaderboard', icon: BarChart2, label: 'Leaderboard' },
+  ];
+
   return (
-    <footer className="w-full border-t border-gold-500/20 bg-black/90 backdrop-blur-lg">
-      <div className="container mx-auto px-6 py-6">
-        {/* Main footer content */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Company info */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <img 
-                src="/src/assets/Athletex 11.png" 
-                alt="AthleteX Markets Exchange" 
-                className="h-8"
-              />
-              <span className="text-gold-500 font-serif italic text-sm">
-                AthelteX Prediction Exchange
-              </span>
-            </div>
-            <p className="text-gold-400/70 text-sm">
-              The social platform for high stakes conversations in sports, media, and culture.
-            </p>
-          </div>
-
-          {/* Quick links */}
-          <div className="space-y-3">
-            <h3 className="text-gold-300 font-serif text-lg mb-2">Navigation</h3>
-            <ul className="space-y-2">
+    <>
+      {/* Desktop Footer (simplified) */}
+      <footer className="hidden md:block w-full border-t border-gold-500/20 bg-black/90 backdrop-blur-lg">
+        <div className="container mx-auto px-6 py-6">
+          <div className="flex justify-between items-center">
+            {/* Navigation Links */}
+            <div className="flex space-x-8">
               {['Markets', 'Portfolio', 'Leaderboard', 'API Docs'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-gold-400/80 hover:text-gold-200 transition-colors text-sm">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div className="space-y-3">
-            <h3 className="text-gold-300 font-serif text-lg mb-2">Legal</h3>
-            <ul className="space-y-2">
-              {['Terms', 'Privacy', 'Risk Disclosure', 'AML Policy'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-gold-400/80 hover:text-gold-200 transition-colors text-sm">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Social/Contact */}
-          <div className="space-y-3">
-            <h3 className="text-gold-300 font-serif text-lg mb-2">Connect</h3>
-            <div className="flex space-x-4">
-              {['Twitter', 'Discord', 'Telegram', 'Email'].map((item) => (
-                <a 
+                <Link
                   key={item}
-                  href="#" 
-                  className="text-gold-400/80 hover:text-gold-200 transition-colors text-sm"
+                  to={item === 'Markets' ? '/' : `/${item.toLowerCase()}`}
+                  className={cn(
+                    "text-gold-400/80 hover:text-gold-200 transition-colors text-sm",
+                    location.pathname === `/${item.toLowerCase()}` && "text-gold-300"
+                  )}
                 >
                   {item}
-                </a>
+                </Link>
               ))}
             </div>
-            <div className="pt-4">
-              <p className="text-xs text-gold-500/60">
-                For support: support@axmarkets.com
-              </p>
+
+            {/* Social Icons (gold accents) */}
+            <div className="flex space-x-4">
+              <a href="#" className="text-gold-400/80 hover:text-gold-200 transition-colors">
+                <Twitter className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-gold-400/80 hover:text-gold-200 transition-colors">
+                <MessageCircle className="w-5 h-5" /> {/* Discord icon substitute */}
+              </a>
+              <a href="#" className="text-gold-400/80 hover:text-gold-200 transition-colors">
+                <Mail className="w-5 h-5" />
+              </a>
             </div>
           </div>
         </div>
+      </footer>
 
-        {/* Copyright and divider */}
-        <div className="border-t border-gold-500/10 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gold-500/60 text-sm">
-            &copy; {new Date().getFullYear()} Ax Markets. All rights reserved.
-          </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <p className="text-gold-500/60 text-sm">Version 2.4.1</p>
-            <p className="text-gold-500/60 text-sm">Last updated: {new Date().toLocaleDateString()}</p>
+      {/* Mobile Bottom Nav (sticky, icon-only) */}
+      <nav className="md:hidden fixed bottom-0 w-full bg-black/90 backdrop-blur-lg border-t border-gold-500/20 z-50">
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex justify-around">
+            {mobileLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={cn(
+                  "flex flex-col items-center p-2",
+                  location.pathname === link.path ? "text-gold-300" : "text-gold-400/70"
+                )}
+              >
+                <link.icon className="w-6 h-6" />
+                <span className="text-xs mt-1">{link.label}</span>
+              </Link>
+            ))}
           </div>
         </div>
-      </div>
-    </footer>
+      </nav>
+    </>
   );
 };
 

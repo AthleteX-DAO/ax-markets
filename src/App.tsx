@@ -17,8 +17,8 @@ function App() {
     <BrowserRouter>
       <TopNavigationBar />
       <RoutesComponent />
+      <BottomNavigationBar />
     </BrowserRouter>
-    <BottomNavigationBar />
     </ThemeProvider>
     </>
   )
