@@ -1,27 +1,23 @@
 import { ThemeProvider } from "@/components/theme-provider"
 
 import './App.css'
+import { BrowserRouter, Routes } from 'react-router-dom';
+import RoutesComponent from './components/routes/routes';
 import TopNavigationBar from './components/TopNavigationBar/TopNavigationBar'
 import BottomNavigationBar from './components/BottomNavigationBar/BottomNavigationBar'
 import Body from "./components/Body/Body"
-import PortfolioPage from "./components/PortfolioPage/PortfolioPage"
-import LeaderboardPage from "./components/LeaderboardPage/LeaderBoardPage"
-import MarketDetail from "./components/MarketDetails/MarketDetails"
+
+
 
 function App() {
 
   return (
     <>
     <ThemeProvider defaultTheme="dark" storageKey="ax-ui-theme">
+    <BrowserRouter>
       <TopNavigationBar />
-
-    <Body />
-    {/* <PortfolioPage /> */}
-    {/* <LeaderboardPage /> */}
-    {/* <MarketDetail /> */}
-
-    {/* Main Content */}
-
+      <RoutesComponent />
+    </BrowserRouter>
     <BottomNavigationBar />
     </ThemeProvider>
     </>
